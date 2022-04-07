@@ -2,7 +2,7 @@
 # Will only work for valid input "d" and "p"
 # invalid input triggers else input but program doesnt ask for input again  
 
-print(" Is your oder for pickup or delivery?")
+print(" Is your order for pickup or delivery?")
 
 print(" For pickup please enter 1")
 print(" For delivery please enter 2")
