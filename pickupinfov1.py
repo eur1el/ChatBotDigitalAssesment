@@ -1,28 +1,14 @@
-#customer details dictionary
-from unicodedata import name
 
+#prints information request message
+print("Please enter your information")
 
-customers_details ={}
+#asks for users name and saves as an input under "name"
+name = input("Please enter your name")
 
-#Basic Instructions
-print("Please enter the pickup information")
+#asks for users phone number an saves as input under "phone"
+phone = input("Please enter your phone number")
 
-#Customer name not found
-valid = False
-while not valid:
-    customers_details['name'] = input("Please enter your name")
-    if customers_details['name'] != "":
-        break
-    else:
-        print("Sorry this cannot be blank")
-
-#Customer phone number
-valid = False
-while not valid:
-    phone = input("Please enter your phone number")
-    if phone != "":
-        print (phone)
-        break
-    
-    else:
-        print("Sorry this cannot be blank")
+#prints users input for "name"
+#prints users input for "phone"
+print(name)
+print(phone)

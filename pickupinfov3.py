@@ -1,21 +1,30 @@
 #Customers details dictionary
 customers_details = {}
-
-
-def not_blank(question):
-    valid = False
-    while not valid:
-        response = input(question)
-        if response != "":
-            return response
-        else:
-            print("This cannot be blank")
+(FIX)
 
 #Basic Instuctions
-question = ("Please enter your name")
-customers_details['name'] = not_blank( question)
-print(customers_details['name'])
+print("Please enter the pickup information")
 
-question = ("Please enter your phone number  ")
-customers_details['phone'] = not_blank(question  )
-print(customers_details['phone'])
+#Customer name not found
+valid = False
+while not valid:
+    customers_details['name'] = input("Please enter your name")
+    if customers_details['name'] != "":
+        print (customers_details['name'])
+        break
+    else:
+        print("Sorry this cannot be blank")
+
+
+
+#Customer phone number not blank
+valid = False
+while not valid:
+    customers_details['phone'] = input("Please enter your phone number")
+    if customers_details['phone'] != "":
+        print(customers_details['phone'])
+        break
+    else:
+        print("Sorry this cannot be blank")
+
+print (customers_details) 
