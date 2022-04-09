@@ -5,6 +5,7 @@ from email import message
 import random
 from random import randint
 from unittest import FunctionTestCase
+import sys
 
 #names for randomised name function for pizza bot
 names = ["Dennis","Marcus","Railey","Karlos","Jacob","Euriel","Cindy","Eilee","Tifa"]
@@ -200,6 +201,64 @@ def print_order(del_pick):
 
 print_order()
 
+#Ability to cancel or proceed with order
+def confirm_cancel():
+    print(" Please confirm your order")
+    print(" To confirm please enter 1")
+    print(" To cancel please enter 2")
+    while True:
+        try:
+            confirm = int(input("Please enter a number"))
+            if confirm >= 1 and confirm <= 2:
+                if confirm == 1:
+                    print ("Ordered Confirmed")
+                    print ("Your order has been sent to our manufactures")
+                    print("Your neat mousepad will be yours shortly")
+                    break
+        
+            elif  confirm == 2:
+                print("Your order has been cancelled")
+                print("You can restart your order or exit the chat")
+                break
+
+            else:
+                print("The number must be 1 or 2")
+        except ValueError:
+            print("That is not a valid number")
+            print("Please enter 1 or 2")
+
+
+#Option for new order or to exit
+def new_exit():
+    print(" Do you want to create another or exit?")
+    print(" To start another order enter 1")
+    print(" To exit the BOT enter 2")
+while True:
+    try:
+        confirm = int(input("Please enter a number"))
+        if confirm >= 1 and confirm <= 2:
+            if confirm == 1:
+                print ("New Order")
+                order_list.clear()
+                order_cost.clear()
+                customer_details.clear()
+                main()
+                break
+    
+        elif  confirm == 2:
+            print("Exit")
+            order_list.clear()
+            order_cost.clear()
+            customer_details.clear()
+            sys.exit()
+            break
+
+        else:
+            print("The number must be 1 or 2")
+    except ValueError:
+        print("That is not a valid number")
+        print("Please enter 1 or 2")
+    
 
 
 #Main function
