@@ -1,4 +1,14 @@
+#Chat Box Program
+#9/04/22
+#Bugs - Phone number allows letters
+#     - Name input allows number
+
+
+
+
+
 #import random
+
 from email import message
 import random
 from random import randint
@@ -51,10 +61,11 @@ def ordertype():
             if delivery >= 1 and delivery <= 2:
                 if delivery == 1:
                     print("Pickup")
-                    pickup()
+                    pickup_info()
                     break
                 elif  delivery == 2:
                     print("Delivery")
+                    delivery_info()
                     break
 
             else:
@@ -64,7 +75,19 @@ def ordertype():
             print("Please enter 1 or 2")
 
 #pickup information - phone and number
-def pickup():
+def pickup_info():
+    question = ("Please enter your name")
+    customer_details['name'] = not_blank( question)
+    print(customer_details['name'])
+
+    question = ("Please enter your phone number  ")
+    customer_details['phone'] = not_blank(question  )
+    print(customer_details['phone'])
+    print (customer_details)
+
+#delivery information - phone and number
+
+def delivery_info():
     question = ("Please enter your name")
     customer_details['name'] = not_blank( question)
     print(customer_details['name'])
@@ -73,7 +96,18 @@ def pickup():
     customer_details['phone'] = not_blank(question  )
     print(customer_details['phone'])
 
+    question = ("Please enter your house")
+    customer_details['house'] = not_blank( question)
+    print(customer_details['house'])
 
+    question = ("Please enter your street number")
+    customer_details['street'] = not_blank(question  )
+    print(customer_details['street'])
+
+    question = ("Please enter your phone suburb")
+    customer_details['suburb'] = not_blank(question  )
+    print(customer_details['suburb'])
+    print (customer_details)
 #Main function
 def main():
     '''
