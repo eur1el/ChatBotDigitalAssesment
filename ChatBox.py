@@ -6,6 +6,18 @@ from unittest import FunctionTestCase
 
 #names for randomised name function for pizza bot
 names = ["Dennis","Marcus","Railey","Karlos","Jacob","Euriel","Cindy","Eilee","Tifa"]
+#Customer details dictionary
+customer_details = {}
+
+# validates inputs to check if they are blank
+def not_blank(question):
+    valid = False
+    while not valid:
+        response = input(question)
+        if response != "":
+            return response.title()
+        else:
+            print("This cannot be blank")
 
 def welcome():
     '''
@@ -29,7 +41,7 @@ print("***I will be here to help you order your neat mousepad***")
 
 #Menu for pick up or
 
-def pickup():
+def ordertype():
     print(" Is your order for pickup or delivery?")
     print(" For pickup please enter 1")
     print(" For delivery please enter 2")
@@ -39,8 +51,8 @@ def pickup():
             if delivery >= 1 and delivery <= 2:
                 if delivery == 1:
                     print("Pickup")
+                    pickup()
                     break
-        
                 elif  delivery == 2:
                     print("Delivery")
                     break
@@ -50,6 +62,16 @@ def pickup():
         except ValueError:
             print("That is not a valid number")
             print("Please enter 1 or 2")
+
+#pickup information - phone and number
+def pickup():
+    question = ("Please enter your name")
+    customer_details['name'] = not_blank( question)
+    print(customer_details['name'])
+
+    question = ("Please enter your phone number  ")
+    customer_details['phone'] = not_blank(question  )
+    print(customer_details['phone'])
 
 
 #Main function
@@ -61,7 +83,8 @@ def main():
     Returns: None
     '''
     welcome()
-    pickup()
+    ordertype()
+    
 
 main()
 
