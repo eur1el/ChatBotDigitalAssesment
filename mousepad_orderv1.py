@@ -12,7 +12,7 @@ order_list = []
 order_cost = []
 
 #list to store order cost
-
+number_mousepad = 9
 def menu():
     number_mousepad = 9
 
