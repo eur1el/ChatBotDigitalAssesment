@@ -1,7 +1,4 @@
 #Chat Box Program
-#9/04/22
-#Bugs - Phone number allows letters
-#     - Name input allows number
 
 #import random
 from email import message
@@ -19,10 +16,16 @@ mousepad_designs = ['Wave Design- Small','Sakura Blossom Design - Small', 'Plain
 #mousepad prices
 mousepad_prices = [12.50, 12.50, 12.50, 17.50, 17.50, 17.50, 24, 24, 24]
 
+
+#list to store ordered mousepads
+order_list = []
+
+#list to store mousepad prices
+order_cost = []
+
 #Customer details dictionary
 customer_details = {}
-
-
+ 
 # validates inputs to check if they are blank
 def not_blank(question):
     valid = False
@@ -36,14 +39,11 @@ def not_blank(question):
 
 def welcome():
     '''
-    
     Purpose: To generate a random name from the list and print it out
     a welcome message 
     Parameters: None
     Returns: None
     '''
-
-
 #make number represent a random generated integer
 num = randint(0,8)
 name = (names[num])
@@ -65,11 +65,13 @@ def ordertype():
             if delivery >= 1 and delivery <= 2:
                 if delivery == 1:
                     print("Pickup")
+                    del_pick = "pickup"
                     pickup_info()
-                    del_pick = "delivery"
                     break
                 elif  delivery == 2:
                     print("Delivery")
+                    order_list.append("Delivery Charge")
+                    order_cost.append(5)
                     delivery_info()
                     del_pick = "delivery"
                     break
@@ -120,23 +122,57 @@ def delivery_info():
     print (customer_details)
 
 
+#list of mousepad names
+from multiprocessing.sharedctypes import Value
 
 #mousepad menu
-mousepad_designs = ['Wave Design- Small','Sakura Blossom Design - Small', 'Plain Blank Design Small','Wave Design- Medium','Sakura Blossom Design - ,Medium', 
-'Plain Blank Design Medium', 'Wave Design- Large','Sakura Blossom Design - Large', 'Plain Blank Design Large',]
+def menu():
+    number_mousepads = 9
+    for count in range (number_mousepads):
+        print(" {} {} ${:.2f}") .format(count+1,mousepad_designs[count],mousepad_prices[count])
 
-mousepad_prices = [12.50, 12.50, 12.50, 17.50, 17.50, 17.50, 24, 24, 24]
 
-number_mousepads = 9
+#ask for total number of pizzas for order
+num_mousepads = 0
+while True:
+    try:
+        num_mousepads = int(input("How many mousepads do you want order>"))
+        if num_mousepads >= 1 and num_mousepads <=5:
+            break
+        else:
+            print("Your order must be between 1 and 5")
+    except ValueError:
+            print("That is not a valid number")
+            print("Please enter 1 or 5")
+           
+#Choose pizza from menu
+for item in range(num_mousepads):
+    while num_mousepads > 0:
+        while True:
+            try:
+                mousepads_ordered = int(input("Please choose your mousepad by entering the number from the menu"))
+                if mousepads_ordered >= 1 and mousepads_ordered <=12:
+                    break
+                else:
+                    print("Your mousepad order must be between 1 and 9")
+                except ValueError:
+                    print("That is not a valid number")
+                    print("Please enter a number between 1 and 12")
+                mousepads_ordered = mousepads_ordered -1
+                order_list.append(mousepad_prices[mousepads_ordered])
+                order_cost.append(mousepad_prices[mousepads_ordered])
+                print(" {} {} ${:.2f}") .format(count+1,mousepad_designs[count],mousepad_prices[count])
+                num_mousepads = num_mousepads-1
 
-print ("How many mousepads would like to order?")
-num_pizzas = int(input())
+print(order_list)
+print(order_cost)
 
-for count in range (number_mousepads):
-    print(" {} {} ${:.2f}") .format(count+1,mousepad_designs[count],mousepad_prices[count])
+
 
 #list to store ordered mousepads
 order_list=['Wave Design- Small','Sakura blossom Design - Small','Plain Black Design - Small']
+
+
 #list to store mousepad prices
 order_cost = [12.50, 12.50, 12.50]
 
@@ -149,7 +185,8 @@ def print_order(del_pick):
         print("Your order is for pickup")
         print(f"{customer_details['name']} {customer_details['phone']}")
     elif del_pick == "delivery":
-        print("Your order is for delivery")
+        print("Your order is for delivery a $5.00 delivery charge applies")
+        total_cost = total_cost + 5
         print(f"{customer_details['name']} {customer_details['phone']} {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
     print()
     print("Order Details")
