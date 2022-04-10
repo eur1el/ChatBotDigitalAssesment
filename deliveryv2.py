@@ -21,15 +21,15 @@ def delivery():
     print(customers_details['phone'])
 
     question = ("Please enter your house")
-    customers_details['house'] = not_blank( question)
+    customers_details['house'] = not_blank(question)
     print(customers_details['house'])
 
     question = ("Please enter your street number")
-    customers_details['street'] = not_blank(question  )
+    customers_details['street'] = not_blank(question)
     print(customers_details['street'])
 
-    question = ("Please enter your phone suburb")
-    customers_details['suburb'] = not_blank(question  )
+    question = ("Please enter your house suburb")
+    customers_details['suburb'] = not_blank(question)
     print(customers_details['suburb'])
 
 delivery()

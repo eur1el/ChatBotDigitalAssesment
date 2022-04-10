@@ -17,7 +17,7 @@ def menu():
     number_mousepad = 9
 
 for count in range (number_mousepad):
-    print(" {} {} ${:.2f}") .format(count+1,mousepad_designs[count],mousepad_prices[count])
+    print(" {} {} ${:.2f}").format(count+1,mousepad_designs[count],mousepad_prices[count])
 
 menu()
 

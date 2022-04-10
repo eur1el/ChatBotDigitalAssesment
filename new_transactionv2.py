@@ -40,5 +40,5 @@ while True:
         print("Please enter 1 or 2")
     
     def main():
-        print("start again")
+        print("Start again")
 

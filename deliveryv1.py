@@ -28,7 +28,7 @@ question = ("Please enter your street number")
 customers_details['street'] = not_blank(question  )
 print(customers_details['street'])
 
-question = ("Please enter your phone suburb")
+question = ("Please enter your suburb")
 customers_details['suburb'] = not_blank(question  )
 print(customers_details['suburb'])
 

@@ -4,7 +4,7 @@ print(" To exit the BOT enter 2")
 while True:
     try:
         confirm = int(input("Please enter a number"))
-        if confirm >= 1 and confirm <= 2:
+        if confirm >= 1 and confirm <=2:
             if confirm == 1:
                 print ("New Order")
                 break

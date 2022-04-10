@@ -1,7 +1,4 @@
 
-
-
-
 print("Do you want your order delivered or are you picking it up")
 
 print("For pickup please enter p")
