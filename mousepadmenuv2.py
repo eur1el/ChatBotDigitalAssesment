@@ -9,6 +9,6 @@ print ("How many pizzas would like to order?")
 num_pizzas = int(input())
 
 for count in range (number_mousepads):
-    print(" {} {} ${:.2f}") .format(count+1,mousepad_designs[count],mousepad_prices[count]))
-    
+    print(" {} {} ${:.2f}") .format(count+1,mousepad_designs[count],mousepad_prices[count])
+
 

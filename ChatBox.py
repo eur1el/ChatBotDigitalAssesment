@@ -53,7 +53,10 @@ def welcome():
 # make number represent a random generated integer
 num = randint(0, 8)
 name = (names[num])
-# print welcome message and print randomised name from ransomised name list
+
+# print welcome message 
+#print randomised name from ransomised name list
+#prints customer service message
 print(" **** Welcome to Noels neat mousepads*** ")
 print("*** My name is", name, "***")
 print("***I will be here to help you order your neat mousepad***")
@@ -133,18 +136,19 @@ def menu():
         print("{} {} ${:.2f}").format(count+1, mousepad_designs[count], mousepad_prices[count])
 
 
-# ask for total number of pizzas for order
-num_mousepads = 0
-while True:
-    try:
-        num_mousepads = int(input("How many mousepads do you want order>"))
-        if num_mousepads >= 1 and num_mousepads < =5:
-            break
-        else:
-            print("Your order must be between 1 and 5")
-    except ValueError:
-            print("That is not a valid number")
-            print("Please enter 1 or 5")
+# ask for total number of mousepads for order
+
+num_mousepads = 0 
+while True:  # when number of mousepads = 0
+    try:  # while number of mousepads = 0 run following code
+        num_mousepads = int(input("How many mousepads do you want order>")) # ask user how many mousepads they want to order and save as an integer
+        if num_mousepads >= 1 and num_mousepads < =5: # if number of mousepads is more than 1 and less than 5
+            break  # if number is between 1 and 5 continue with other code
+        else:  # if number is not between 1 and 5 run following code
+            print("Your order must be between 1 and 5") # if number is less than 1 and greater than 5 tell user to enter a number between 1 and 5
+    except ValueError:  # If input is not an integer 
+            print("That is not a valid number")  # print message to tell user that the input was not valid
+            print("Please enter 1 or 5")  # print message to tell user to enter a number between 1 and 5
 
 # Choose pizza from menu
 for item in range(num_mousepads):
