@@ -5,8 +5,8 @@ mousepad_prices = [12.50, 12.50, 12.50, 17.50, 17.50, 17.50, 24, 24, 24]
 
 number_mousepads = 9
 
-print ("How many pizzas would like to order?")
-num_pizzas = int(input())
+print ("How many mousepads you would like to order?")
+number_mousepads = int(input())
 
 for count in range (number_mousepads):
     print(count,mousepad_designs[count].pizza_prices[count])

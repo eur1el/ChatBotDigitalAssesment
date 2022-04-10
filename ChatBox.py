@@ -150,6 +150,7 @@ while True:  # when number of mousepads = 0
             print("That is not a valid number")  # print message to tell user that the input was not valid
             print("Please enter 1 or 5")  # print message to tell user to enter a number between 1 and 5
 
+count = 0
 # Choose pizza from menu
 for item in range(num_mousepads):
     while num_mousepads > 0:
@@ -247,7 +248,6 @@ while True:
                 order_list.clear()
                 order_cost.clear()
                 customer_details.clear()
-                main()
                 break
 
         elif confirm == 2:
