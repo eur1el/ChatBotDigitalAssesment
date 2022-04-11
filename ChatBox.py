@@ -207,7 +207,7 @@ def confirm_cancel():
     print(" To cancel please enter 2")
     while True:
         try:
-            confirm = int(input("Please enter a number"))
+            confirm = int(input(""))
             if confirm >= 1 and confirm <= 2:
                 if confirm == 1:
                     print ("Ordered Confirmed")
