@@ -10,6 +10,6 @@ cust_details = {'name':'Euriel','phone':'0212121213','house':'45','street':'Dani
 print(f"{cust_details['name']} {cust_details['phone']} {cust_details['house']} {cust_details['street']} {cust_details['suburb']}")
 
 count = 0
-for order in order_list:
-    print("Ordered: {}  Cost ${:.2f}".format(item,order_cost[count]))
+for item in order_list:
+    print("Ordered: {} Cost ${:.2f}"  .format(item, order_cost[count]))
     count = count+1

@@ -12,7 +12,7 @@ def print_order():
     print()
     print("Order Details")
     count = 0
-    for order in order_list:
+    for item in order_list:
         print("Ordered: {}  Cost ${:.2f}".format(item,order_cost[count]))
         count = count+1
     print()
