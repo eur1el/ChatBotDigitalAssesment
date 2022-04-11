@@ -1,10 +1,14 @@
 # Chat Box Program
 # import random
-from email import message
+import sys
 import random
 from random import randint
-from unittest import FunctionTestCase
-import sys
+
+#constants 
+low = 1
+high = 2
+ph_low = 7
+ph_high = 10
 
 # list of mousepad names
 from multiprocessing.sharedctypes import Value
@@ -20,10 +24,8 @@ mousepad_designs = ['Wave Design- Small', 'Sakura Blossom Design - Small', 'Plai
 # mousepad prices
 mousepad_prices = [12.50, 12.50, 12.50, 17.50, 17.50, 17.50, 24, 24, 24]
 
-
 # list to store ordered mousepads
 order_list = []
-
 # list to store mousepad prices
 order_cost = []
 
@@ -41,6 +43,16 @@ def not_blank(question):
         else:
             print("This cannot be blank")
 
+def check_string(question):
+    while True:
+        response = input(question)
+        x = response.isalpha()
+        if x == False:
+            print("Input must only contain letters")
+        else:
+            return response.title()
+            
+
 def valid_integer(low, high, question):
     while True:
         try:
@@ -53,13 +65,32 @@ def valid_integer(low, high, question):
             print ("That is not a valid number")
             print (f"Please enter a number between {low} and {high}")
 
-
+def check_string(question):
+    while True:
+        response = input(question)
+        x = response.isalpha()
+        if x == False:
+            print("Input must only contain letters")
+        else:
+            return response.title()
+            
+def check_phone(question, ph_low, ph_high):
+    while True:
+        try:
+            num = int(input(question))
+            test_num = num
+            count = 0
+            while test_num > 0:
+                test_num = test_num//10
+                count = count + 1
+            if count >= ph_low and count <= ph_high:
+                return str(num)
+            else:
+                print("NewZealand mobile numbers contain 7 to 10 digits")
+        except ValueError:
+            print("Please enter a number ")
 
 def welcome():
-    # make number represent a random generated integer
-    # print welcome message 
-    #print randomised name from ransomised name list
-    #prints customer service message
     num = randint(0, 8)
     name = (names[num])
     print(" **** Welcome to Noels neat mousepads*** ")
@@ -70,11 +101,9 @@ def welcome():
 # Menu for pick up or delivery
 def ordertype():
     del_pick = ""
-    low = 1
-    high = 2
-    question = (f"Enter a number between {low} and {high}")
-    print(" Is your order for pickup or delivery?")
-    print(" For pickup please enter 1")
+    question = (f"Enter a number between {low} and {high} ")
+    print(" Is your order for click and collect or would you like it delivered?")
+    print(" For click and collect please enter 1")
     print(" For delivery please enter 2")
     delivery = valid_integer(low,high, question)
     if delivery == 1:
@@ -91,22 +120,22 @@ def ordertype():
 # pickup information - phone and number
 def pickup_info():
     question = ("Please enter your name")
-    customer_details['name'] = not_blank(question)
+    customer_details['name'] = check_string(question)
     print(customer_details['name'])
 
     question = ("Please enter your phone number")
-    customer_details['phone'] = not_blank(question)
+    customer_details['phone'] = check_phone(question,ph_low,ph_high)
     print(customer_details['phone'])
     print (customer_details)
 
     # delivery information - phone and number
 def delivery_info():
     question = ("Please enter your name")
-    customer_details['name'] = not_blank(question)
+    customer_details['name'] = check_string(question)
     print(customer_details['name'])
 
     question = ("Please enter your phone number")
-    customer_details['phone'] = not_blank(question)
+    customer_details['phone'] = check_phone(question,ph_low,ph_high)
     print(customer_details['phone'])
 
     question = ("Please enter your house")
@@ -114,11 +143,11 @@ def delivery_info():
     print(customer_details['house'])
 
     question = ("Please enter your street number")
-    customer_details['street'] = not_blank(question)
+    customer_details['street'] = check_string(question)
     print(customer_details['street'])
 
     question = ("Please enter your suburb")
-    customer_details['suburb'] = not_blank(question)
+    customer_details['suburb'] = check_string(question)
     print(customer_details['suburb'])
     print (customer_details)
 
@@ -130,25 +159,25 @@ def menu():
         print("{} {} ${:.2f}".format(count+1, mousepad_designs[count], mousepad_prices[count]))
 
 
-# ask for total number of mousepads for order
 def order_mousepads():
+    # ask for total number of mousepads for order
     num_mousepads = 0 
     count = 0
-    low = 1
-    high = 15
+    num_low = 1
+    num_high = 15
     menu_low = 1
     menu_high = 13
-    question = (f"Enter a number between {low} and {high}")
-    print("How many costumes do you want to order?")
-    num_costumes = valid_integer(low,high,question)
-    #Choose costume from menu
-    for item in range(num_costumes):
+    question = (f"Enter a number between {num_low} and {num_high}")
+    print("How many mousepads do you want to order?")
+    num_mousepads = valid_integer(menu_low,menu_high,question)
+    #Choose mousepad from menu
+    for item in range(num_mousepads):
         while num_mousepads > 0:
             print("Please choose the mousepad you want by providing the number of the mousepad from the menu")
-            question = (f"Enter a number between {low} and {high}")
+            question = (f"Enter a number between {menu_low} and {menu_high}")
             mousepads_ordered = valid_integer(menu_low, menu_high, question)
             mousepads_ordered = mousepads_ordered -1
-            order_list.append(mousepad_prices[mousepads_ordered])
+            order_list.append(mousepad_designs[mousepads_ordered])
             order_cost.append(mousepad_prices[mousepads_ordered])
             print("{} ${:.2f}".format(mousepad_designs[mousepads_ordered],mousepad_prices[mousepads_ordered]))
             num_mousepads = num_mousepads -1
@@ -160,25 +189,29 @@ def print_order(del_pick):
     total_cost = sum(order_cost)
     print ("Customer Details")
     if del_pick == "Click and Collect":
-        print("Your order is for Click and Collect")
-        print(f"{customer_details['name']} {customer_details['phone']}")
+         print("Your Order is for Click and Collect")
+         print(f"Customer Name: {customer_details['name']}"
+              f"\nCustomer Phone: {customer_details['phone']}")
     elif del_pick == "delivery":
-        print("Your order is for delivery a $9.00 delivery charge applies")
-        print(f"{customer_details['name']} {customer_details['phone']} {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
+        print("Your order is selected for delivery")
+        print(f"Customer Name: {customer_details['name']}"
+              f"\nCustomer Phone: {customer_details['phone']}"
+              f"\nCustomer Address: {customer_details['house']} ")
     print()
     #Function
     print("Order Details")
     count = 0
     for item in order_list:
-        print("Ordered: {}  Cost ${:.2f}".format(item, order_cost[count]))
+        print("Ordered: {} Cost ${:.2f}"    .format(item, order_cost[count]))
         count = count+1
+        print(f"${total_cost:.2f}")
     print()
-    if del_pick =="Delivery":
+    if del_pick == "Delivery":
         if len(order_list) >= 5:
-            print("Your order will be delivered for free")
+            print("Your order will be delivered for free due to ordering 5 or more products")
         elif len(order_list) <= 5:
             print("There is an additional $9.00 delivery charge")
-            total_cost = total_cost +9
+            total_cost = total_cost + 9
         print("Order Cost Details")
         print(f"${total_cost:.2f}")
     if del_pick == "Click and Collect":
@@ -188,8 +221,6 @@ def print_order(del_pick):
 
 # Ability to cancel or proceed with order
 def confirm_cancel():
-    low = 1
-    high = 2
     question = (f"Enter a number between {low} and {high}")
     print(" Please confirm your order")
     print(" To confirm please enter 1")
@@ -205,35 +236,27 @@ def confirm_cancel():
         print("You can restart your order or exit the chat")
         new_exit()
 
+
 # Option for new order or to exit
 def new_exit():
-    print(" Do you want to create another or exit?")
-    print(" To start another order enter 1")
-    print(" To exit the BOT enter 2")
-while True:
-    try:
-        confirm = int(input("Please enter a number"))
-        if confirm >= 1 and confirm <= 2:
-            if confirm == 1:
-                print ("New Order")
-                order_list.clear()
-                order_cost.clear()
-                customer_details.clear()
-                break
+    question = (f"Enter a number between {low} and {high} ")
+    print ("Do you want to start another Order or Exit?")
+    print ("To start another order enter 1")
+    print ("To exit the BOT enter 2")
+    confirm = valid_integer(low,high, question)
+    if confirm == 1:
+        print ("New Order")
+        order_list.clear()
+        order_cost.clear()
+        customer_details.clear()
+        main()
 
-        elif confirm == 2:
-            print("Exit")
-            order_list.clear()
-            order_cost.clear()
-            customer_details.clear()
-            sys.exit()
-            break
-
-        else:
-            print("The number must be 1 or 2")
-    except ValueError:
-        print("That is not a valid number")
-        print("Please enter 1 or 2")
+    elif confirm == 2:
+        print("Thank you for visiting Noels Neat Mousepads")
+        order_list.clear()
+        order_cost.clear()
+        customer_details.clear()
+        sys.exit()
 
 
 # Main function
@@ -244,7 +267,6 @@ def main():
     order_mousepads()
     print_order(del_pick)
     confirm_cancel()
-    menu()
     
 main()
 
