@@ -43,22 +43,46 @@ def not_blank(question):
 
 
 def welcome():
-    '''
-    Purpose: To generate a random name from the list and print it out
-    a welcome message
-    Parameters: None
-    Returns: None
-    '''
-# make number represent a random generated integer
-num = randint(0, 8)
-name = (names[num])
+    # make number represent a random generated integer
+    # print welcome message 
+    #print randomised name from ransomised name list
+    #prints customer service message
+    num = randint(0, 8)
+    name = (names[num])
+    print(" **** Welcome to Noels neat mousepads*** ")
+    print("*** My name is", name, "***")
+    print("***I will be here to help you order your neat mousepad***")
 
-# print welcome message 
-#print randomised name from ransomised name list
-#prints customer service message
-print(" **** Welcome to Noels neat mousepads*** ")
-print("*** My name is", name, "***")
-print("***I will be here to help you order your neat mousepad***")
+
+# Menu for pick up or delivery
+def ordertype():
+    del_pick = ""
+    print(" Is your order for pickup or delivery?")
+    print(" For pickup please enter 1")
+    print(" For delivery please enter 2")
+    while True:
+        try:
+            delivery = int(input("Please enter a number"))
+            if delivery >= 1 and delivery <= 2:
+                if delivery == 1:
+                    print("Pickup")
+                    del_pick = "pickup"
+                    pickup_info()
+                    break
+                elif delivery == 2:
+                    print("Delivery")
+                    order_list.append("Delivery Charge")
+                    order_cost.append(5)
+                    delivery_info()
+                    del_pick = "delivery"
+                    break
+
+            else:
+                print("The number must be 1 or 2")
+        except ValueError:
+            print("That is not a valid number")
+            print("Please enter 1 or 2")
+        return del_pick
 
 # pickup information - phone and number
 def pickup_info():
@@ -135,39 +159,6 @@ def order_mousepads():
                             print("{} ${:.2f}".format(mousepad_designs[mousepads_ordered],mousepad_prices[mousepads_ordered]))
                             num_mousepads = num_mousepads -1
 
-    print(order_list)
-    print(order_cost)
-
-
-# Menu for pick up or delivery
-def ordertype():
-    del_pick = ""
-    print(" Is your order for pickup or delivery?")
-    print(" For pickup please enter 1")
-    print(" For delivery please enter 2")
-    while True:
-        try:
-            delivery = int(input("Please enter a number"))
-            if delivery >= 1 and delivery <= 2:
-                if delivery == 1:
-                    print("Pickup")
-                    del_pick = "pickup"
-                    pickup_info()
-                    break
-                elif delivery == 2:
-                    print("Delivery")
-                    order_list.append("Delivery Charge")
-                    order_cost.append(5)
-                    delivery_info()
-                    del_pick = "delivery"
-                    break
-
-            else:
-                print("The number must be 1 or 2")
-        except ValueError:
-            print("That is not a valid number")
-            print("Please enter 1 or 2")
-        return del_pick
 
 # list to store ordered mousepads
 order_list = ['Wave Design- Small', 'Sakura blossom Design - Small', 'Plain Black Design - Small']
@@ -182,23 +173,32 @@ def print_order(del_pick):
     print ()
     total_cost = sum(order_cost)
     print ("Customer Details")
-    if del_pick == "pickup":
-        print("Your order is for pickup")
+    if del_pick == "Click and Collect":
+        print("Your order is for Click and Collect")
         print(f"{customer_details['name']} {customer_details['phone']}")
     elif del_pick == "delivery":
         print("Your order is for delivery a $9.00 delivery charge applies")
-        total_cost = total_cost + 5
         print(f"{customer_details['name']} {customer_details['phone']} {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
     print()
+    #Function
     print("Order Details")
     count = 0
-    for order in order_list:
+    for item in order_list:
         print("Ordered: {}  Cost ${:.2f}".format(item, order_cost[count]))
         count = count+1
     print()
-    print("Order Cost Details")
-    print(f"${total_cost:.2f}")
-
+    if del_pick =="Delivery":
+        if len(order_list) >= 5:
+            print("Your order will be delivered for free")
+        elif len(order_list) <= 5:
+            print("There is an additional $9.00 delivery charge")
+            total_cost = total_cost +9
+        print("Order Cost Details")
+        print(f"${total_cost:.2f}")
+    if del_pick == "Click and Collect":
+        print("Thank you for your order, we'll let you know when its ready")
+    elif del_pick == "Delivery":
+        print("Thank you for your order, it will be processed soon")
 
 # Ability to cancel or proceed with order
 def confirm_cancel():
@@ -207,14 +207,14 @@ def confirm_cancel():
     print(" To cancel please enter 2")
     while True:
         try:
-            confirm = int(input(""))
+            confirm = int(input("Please enter a number "))
             if confirm >= 1 and confirm <= 2:
                 if confirm == 1:
                     print ("Ordered Confirmed")
                     print ("Your order has been sent to our manufactures")
                     print("Your neat mousepad will be yours shortly")
+                    new_exit()
                     break
-
             elif confirm == 2:
                 print("Your order has been cancelled")
                 print("You can restart your order or exit the chat")
@@ -270,4 +270,9 @@ def main():
     pickup_info()
     delivery_info()
     menu()
+
+
+
+
+main()
 
