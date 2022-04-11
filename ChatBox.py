@@ -60,6 +60,84 @@ print(" **** Welcome to Noels neat mousepads*** ")
 print("*** My name is", name, "***")
 print("***I will be here to help you order your neat mousepad***")
 
+# pickup information - phone and number
+def pickup_info():
+    question = ("Please enter your name")
+    customer_details['name'] = not_blank(question)
+    print(customer_details['name'])
+
+    question = ("Please enter your phone number")
+    customer_details['phone'] = not_blank(question)
+    print(customer_details['phone'])
+    print (customer_details)
+
+    # delivery information - phone and number
+def delivery_info():
+    question = ("Please enter your name")
+    customer_details['name'] = not_blank(question)
+    print(customer_details['name'])
+
+    question = ("Please enter your phone number")
+    customer_details['phone'] = not_blank(question)
+    print(customer_details['phone'])
+
+    question = ("Please enter your house")
+    customer_details['house'] = not_blank(question)
+    print(customer_details['house'])
+
+    question = ("Please enter your street number")
+    customer_details['street'] = not_blank(question)
+    print(customer_details['street'])
+
+    question = ("Please enter your phone suburb")
+    customer_details['suburb'] = not_blank(question)
+    print(customer_details['suburb'])
+    print (customer_details)
+
+
+# mousepad menu
+def menu():
+    number_mousepads = 9
+    for count in range(number_mousepads):
+        print("{} {} ${:.2f}".format(count+1, mousepad_designs[count], mousepad_prices[count]))
+
+
+# ask for total number of mousepads for order
+def order_mousepads():
+    num_mousepads = 0 
+    count = 0
+    while True:  # when number of mousepads = 0
+        try:  # while number of mousepads = 0 run following code
+            num_mousepads = int(input("How many mousepads do you want order>")) # ask user how many mousepads they want to order and save as an integer
+            if num_mousepads >= 1 and num_mousepads <= 9: # if number of mousepads is more than 1 and less than 5
+                break  # if number is between 1 and 5 continue with other code
+            else:  # if number is not between 1 and 5 run following code
+                print("Your order must be between 1 and 5") # if number is less than 1 and greater than 5 tell user to enter a number between 1 and 5
+        except ValueError:  # If input is not an integer 
+                print("That is not a valid number")  # print message to tell user that the input was not valid
+                print("Please enter 1 or 5")  # print message to tell user to enter a number between 1 and 5
+    # Choose pizza from menu
+    for item in range(num_mousepads):
+        while num_mousepads > 0:
+            while True:
+                try:
+                    mousepads_ordered = int(input("Please choose your mousepad by entering the number from the menu"))
+                    if mousepads_ordered >= 1 and mousepads_ordered <= 12:
+                        break
+                    else:
+                        print("Your mousepad order must be between 1 and 9")
+                except ValueError:
+                            print("That is not a valid number")
+                            print("Please enter a number between 1 and 12")
+                            mousepads_ordered = mousepads_ordered -1
+                            order_list.append(mousepad_prices[mousepads_ordered])
+                            order_cost.append(mousepad_prices[mousepads_ordered])
+                            print("{} ${:.2f}".format(mousepad_designs[mousepads_ordered],mousepad_prices[mousepads_ordered]))
+                            num_mousepads = num_mousepads -1
+
+    print(order_list)
+    print(order_cost)
+
 
 # Menu for pick up or delivery
 def ordertype():
@@ -91,88 +169,6 @@ def ordertype():
             print("Please enter 1 or 2")
         return del_pick
 
-
-# pickup information - phone and number
-def pickup_info():
-    question = ("Please enter your name")
-    customer_details['name'] = not_blank(question)
-    print(customer_details['name'])
-
-    question = ("Please enter your phone number")
-    customer_details['phone'] = not_blank(question)
-    print(customer_details['phone'])
-    print (customer_details)
-
-
-# delivery information - phone and number
-def delivery_info():
-    question = ("Please enter your name")
-    customer_details['name'] = not_blank(question)
-    print(customer_details['name'])
-
-    question = ("Please enter your phone number")
-    customer_details['phone'] = not_blank(question)
-    print(customer_details['phone'])
-
-    question = ("Please enter your house")
-    customer_details['house'] = not_blank(question)
-    print(customer_details['house'])
-
-    question = ("Please enter your street number")
-    customer_details['street'] = not_blank(question)
-    print(customer_details['street'])
-
-    question = ("Please enter your phone suburb")
-    customer_details['suburb'] = not_blank(question)
-    print(customer_details['suburb'])
-    print (customer_details)
-
-
-# mousepad menu
-def menu():
-    number_mousepads = 9
-    for count in range(number_mousepads):
-        print("{} {} ${:.2f}").format(count+1, mousepad_designs[count], mousepad_prices[count])
-
-
-# ask for total number of mousepads for order
-
-num_mousepads = 0 
-while True:  # when number of mousepads = 0
-    try:  # while number of mousepads = 0 run following code
-        num_mousepads = int(input("How many mousepads do you want order>")) # ask user how many mousepads they want to order and save as an integer
-        if num_mousepads >= 1 and num_mousepads <=5: # if number of mousepads is more than 1 and less than 5
-            break  # if number is between 1 and 5 continue with other code
-        else:  # if number is not between 1 and 5 run following code
-            print("Your order must be between 1 and 5") # if number is less than 1 and greater than 5 tell user to enter a number between 1 and 5
-    except ValueError:  # If input is not an integer 
-            print("That is not a valid number")  # print message to tell user that the input was not valid
-            print("Please enter 1 or 5")  # print message to tell user to enter a number between 1 and 5
-
-count = 0
-# Choose pizza from menu
-for item in range(num_mousepads):
-    while num_mousepads > 0:
-        while True:
-            try:
-                mousepads_ordered = int(input("Please choose your mousepad by entering the number from the menu"))
-                if mousepads_ordered >= 1 and mousepads_ordered <= 12:
-                    break
-                else:
-                    print("Your mousepad order must be between 1 and 9")
-            except ValueError:
-                        print("That is not a valid number")
-                        print("Please enter a number between 1 and 12")
-                        mousepads_ordered = mousepads_ordered -1
-                        order_list.append(mousepad_prices[mousepads_ordered])
-                        order_cost.append(mousepad_prices[mousepads_ordered])
-                        print(" {} {} ${:.2f}") .format(count + 1, mousepad_designs[count], mousepad_prices[count])
-                        num_mousepads = num_mousepads-1
-
-print(order_list)
-print(order_cost)
-
-
 # list to store ordered mousepads
 order_list = ['Wave Design- Small', 'Sakura blossom Design - Small', 'Plain Black Design - Small']
 
@@ -190,7 +186,7 @@ def print_order(del_pick):
         print("Your order is for pickup")
         print(f"{customer_details['name']} {customer_details['phone']}")
     elif del_pick == "delivery":
-        print("Your order is for delivery a $5.00 delivery charge applies")
+        print("Your order is for delivery a $9.00 delivery charge applies")
         total_cost = total_cost + 5
         print(f"{customer_details['name']} {customer_details['phone']} {customer_details['house']} {customer_details['street']} {customer_details['suburb']}")
     print()
@@ -202,8 +198,6 @@ def print_order(del_pick):
     print()
     print("Order Cost Details")
     print(f"${total_cost:.2f}")
-
-print_order()
 
 
 # Ability to cancel or proceed with order
@@ -273,9 +267,7 @@ def main():
     Returns: None
     '''
     welcome()
-    del_pick = ordertype()
-    print(del_pick)
-    mousepad_designs()
-    ordertype()
-    print_order()
-main()
+    pickup_info()
+    delivery_info()
+    menu()
+
