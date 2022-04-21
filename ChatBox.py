@@ -118,38 +118,38 @@ def ordertype():
     
 
 # pickup information - phone and number
-def pickup_info():
-    question = ("Please enter your name")
-    customer_details['name'] = check_string(question)
-    print(customer_details['name'])
+def pickup_info():# 
+    question = ("Please enter your name")# Ask user to enter their name
+    customer_details['name'] = check_string(question)# When user has entered their name use code "check_string" to see whether only letters are being inputed
+    print(customer_details['name'])# Print customers input for name
 
-    question = ("Please enter your phone number")
-    customer_details['phone'] = check_phone(question,ph_low,ph_high)
-    print(customer_details['phone'])
-    print (customer_details)
+    question = ("Please enter your phone number")# Ask user to enter their phone number
+    customer_details['phone'] = check_phone(question,ph_low,ph_high)# 
+    print(customer_details['phone'])# Print customers input for phone number
+    print (customer_details)# print code called "customer_details"
 
     # delivery information - phone and number
-def delivery_info():
-    question = ("Please enter your name")
-    customer_details['name'] = check_string(question)
-    print(customer_details['name'])
+def delivery_info():# 
+    question = ("Please enter your name")# Ask user to enter their name
+    customer_details['name'] = check_string(question)# When user has their name entered use code "check_string" to see whether only letters are being inputed
+    print(customer_details['name'])# Print users name
 
-    question = ("Please enter your phone number")
-    customer_details['phone'] = check_phone(question,ph_low,ph_high)
-    print(customer_details['phone'])
+    question = ("Please enter your phone number")# Ask user to enter their phone number
+    customer_details['phone'] = check_phone(question,ph_low,ph_high)# When user has entered their phone number use code "check phone to see whether only letters are being inputed
+    print(customer_details['phone'])# When user has entered use code "check_string" to see whether only letters are being inputed
 
-    question = ("Please enter your house")
-    customer_details['house'] = not_blank(question)
-    print(customer_details['house'])
+    question = ("Please enter your house")# Ask user to enter their house
+    customer_details['house'] = not_blank(question)# When user has entered their house use code "check_string" to see whether only letters are being inputed
+    print(customer_details['house'])# Print Customers house
 
-    question = ("Please enter your street number")
-    customer_details['street'] = check_string(question)
-    print(customer_details['street'])
+    question = ("Please enter your street number")# Ask user to enter their street
+    customer_details['street'] = check_string(question)# When user has entered their street then uses code "check_string" to see whether only letters are being inputed
+    print(customer_details['street'])# # Print customers input for street
 
-    question = ("Please enter your suburb")
-    customer_details['suburb'] = check_string(question)
-    print(customer_details['suburb'])
-    print (customer_details)
+    question = ("Please enter your suburb")# Ask user to enter their suburb
+    customer_details['suburb'] = check_string(question)# When user has entered use code "check_string" to see whether only letters are being inputed
+    print(customer_details['suburb'])# Print customers input for suburb 
+    print (customer_details)# print code called "customer_details"
 
 
 # mousepad menu# 
