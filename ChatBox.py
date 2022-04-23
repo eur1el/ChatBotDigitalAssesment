@@ -74,47 +74,47 @@ def check_string(question):#
         else:# 
             return response.title()#
             
-def check_phone(question, ph_low, ph_high):
-    while True:
-        try:
-            num = int(input(question))
-            test_num = num
-            count = 0
-            while test_num > 0:
-                test_num = test_num//10
-                count = count + 1
-            if count >= ph_low and count <= ph_high:
-                return str(num)
-            else:
-                print("NewZealand mobile numbers contain 7 to 10 digits")
-        except ValueError:
-            print("Please enter a number ")
+def check_phone(question, ph_low, ph_high):# 
+    while True:# 
+        try:# 
+            num = int(input(question))# 
+            test_num = num# 
+            count = 0# 
+            while test_num > 0:# 
+                test_num = test_num//10# 
+                count = count + 1# 
+            if count >= ph_low and count <= ph_high:# 
+                return str(num)# 
+            else:# 
+                print("NewZealand mobile numbers contain 7 to 10 digits")# 
+        except ValueError:# 
+            print("Please enter a number ")# 
 
-def welcome():
-    num = randint(0, 8)
-    name = (names[num])
-    print(" **** Welcome to Noels neat mousepads*** ")
-    print("*** My name is", name, "***")
-    print("***I will be here to help you order your neat mousepad***")
+def welcome():# Define following code as "welcome"
+    num = randint(0, 8)# choose a random integer between 0 and 8
+    name = (names[num])# random integer chosen correlates to name from randomised name list
+    print(" **** Welcome to Noels neat mousepads*** ")# Print welcome message
+    print("*** My name is", name, "***")# Print message using code "name"
+    print("***I will be here to help you order your neat mousepad***")# Print Help message
 
 
 # Menu for pick up or delivery
-def ordertype():
-    del_pick = ""
-    question = (f"Enter a number between {low} and {high} ")
-    print(" Is your order for click and collect or would you like it delivered?")
-    print(" For click and collect please enter 1")
-    print(" For delivery please enter 2")
-    delivery = valid_integer(low,high, question)
-    if delivery == 1:
-        print("Click and Collect")
-        del_pick = "Click and Collect"
-        pickup_info()
-    else:
-        print("Delivery")
-        delivery_info()
-        del_pick = "Delivery"
-    return del_pick
+def ordertype():# define following code as "order_type"
+    del_pick = ""# Delivery pick = input
+    question = (f"Enter a number between {low} and {high} ")# Ask user to enter a number between low (1) and high(2)
+    print(" Is your order for click and collect or would you like it delivered?")# Ask user if their order type is Click and Collect or delivered.
+    print(" For click and collect please enter 1")# Tell user to enter 1 if they want their order to be Click and Collect
+    print(" For delivery please enter 2")# Tell user to enter 2 if they want their order to be delivered
+    delivery = valid_integer(low,high, question)# 
+    if delivery == 1:# If delivery integer = 1
+        print("Click and Collect")#  Print Message "Click and Collect"
+        del_pick = "Click and Collect"# delivery type =  Click and Collect
+        pickup_info()# Print code called "pickup_info"
+    else:# if pick up doesnt equal 1
+        print("Delivery")# Print message "Delivery"
+        delivery_info()# Print code called "delivery_info"
+        del_pick = "Delivery"# delivery type = Delivery
+    return del_pick# 
     
 
 # pickup information - phone and number
