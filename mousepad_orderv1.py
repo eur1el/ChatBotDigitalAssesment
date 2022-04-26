@@ -17,18 +17,17 @@ def menu():
     number_mousepad = 9
 
 for count in range (number_mousepad):
-    print(" {} {} ${:.2f}").format(count+1,mousepad_designs[count],mousepad_prices[count])
+    print(" {} {} ${:.2f}".format(count+1,mousepad_designs[count],mousepad_prices[count]))
 
 menu()
 
 #ask for total number of pizzas for order
 num_mousepads = 0
 
-num_mousepads = int(input("How many mousepads do you want order>"))
+num_mousepads = int(input("How many mousepads do you want order?"))
 
 print(num_mousepads)
 
-num_pizzas = input("How many pizzas do you wnat to order")
 
 #Choose pizza from menu
 print("Please choose your mousepads by entering the number from the menu")

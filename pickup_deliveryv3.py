@@ -17,7 +17,7 @@ while True:
             if delivery == 1:
                 print("Pickup")
                 break
-    
+            
         elif  delivery == 2:
             print("Delivery")
             break

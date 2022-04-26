@@ -54,14 +54,14 @@ def check_string(question):# define code as check_string
             
 
 def valid_integer(low, high, question):# 
-    while True:# 
-        try:# 
+    while True:# When True
+        try:# Run 
             num = int(input(question))# 
             if num >= low and num <= high:# 
                 return num# 
-            else:# 
-                print (f"Pleas enter a number between {low} and {high}")# 
-        except ValueError:# 
+            else:# If number is not inputted 
+                print (f"Please enter a number between {low} and {high}")# 
+        except ValueError:# If a integer 
             print ("That is not a valid number")# 
             print (f"Please enter a number between {low} and {high}")# 
 
@@ -75,8 +75,8 @@ def check_string(question):#
             return response.title()#
             
 def check_phone(question, ph_low, ph_high):# 
-    while True:# 
-        try:# 
+    while True:# When 
+        try:# Run following Code
             num = int(input(question))# 
             test_num = num# 
             count = 0# 
@@ -87,8 +87,8 @@ def check_phone(question, ph_low, ph_high):#
                 return str(num)# 
             else:# 
                 print("NewZealand mobile numbers contain 7 to 10 digits")# 
-        except ValueError:# 
-            print("Please enter a number ")# 
+        except ValueError:# If 
+            print("Please enter a number ")# Print message asking user to enter a number
 
 def welcome():# Define following code as "welcome"
     num = randint(0, 8)# choose a random integer between 0 and 8
@@ -118,7 +118,7 @@ def ordertype():# define following code as "order_type"
     
 
 # pickup information - phone and number
-def pickup_info():# 
+def pickup_info():# Define following code as "pickup_info"
     question = ("Please enter your name")# Ask user to enter their name
     customer_details['name'] = check_string(question)# When user has entered their name use code "check_string" to see whether only letters are being inputed
     print(customer_details['name'])# Print customers input for name
@@ -129,7 +129,7 @@ def pickup_info():#
     print (customer_details)# print code called "customer_details"
 
     # delivery information - phone and number
-def delivery_info():# 
+def delivery_info():# Define following code as "delivery_info"
     question = ("Please enter your name")# Ask user to enter their name
     customer_details['name'] = check_string(question)# When user has their name entered use code "check_string" to see whether only letters are being inputed
     print(customer_details['name'])# Print users name
@@ -152,9 +152,9 @@ def delivery_info():#
     print (customer_details)# print code called "customer_details"
 
 
-# mousepad menu# 
-def menu():# 
-    number_mousepads = 9# 
+# mousepad menu
+def menu():# Define following code as "menu"
+    number_mousepads = 9 # number of mousepads is 9
     for count in range(number_mousepads):# 
         print("{} {} ${:.2f}".format(count+1, mousepad_designs[count], mousepad_prices[count]))# 
 
@@ -187,7 +187,7 @@ def order_mousepads():#
 def print_order(del_pick):# define following order as "print_order(del_pick)"
     print ()# Print Blank space
     total_cost = sum(order_cost)# total_cost equals the sum of 
-    print ("Customer Details")# Print Customer details 
+    print ("Customer Details")# Print Customer details -
     if del_pick == "Click and Collect":# If delivery type equals click and collect
          print("Your Order is for Click and Collect")# Print message to user telling their order is ready
          print(f"Customer Name: {customer_details['name']}"# Print Customer Name
@@ -199,21 +199,21 @@ def print_order(del_pick):# define following order as "print_order(del_pick)"
               f"\nCustomer Address: {customer_details['house']} ")# Print Customer Address
     print()# Print Blank space
     #Function
-    print("Order Details")# 
-    count = 0# 
+    print("Order Details")# Print order detail message
+    count = 0# Set count as 0
     for item in order_list:# 
         print("Ordered: {} Cost ${:.2f}"    .format(item, order_cost[count]))# 
-        count = count+1# 
-        print(f"${total_cost:.2f}")# 
-    print()# 
-    if del_pick == "Delivery":# 
-        if len(order_list) >= 5:#
-            print("Your order will be delivered for free due to ordering 5 or more products")# 
-        elif len(order_list) <= 5:# 
-            print("There is an additional $9.00 delivery charge")# 
-            total_cost = total_cost + 9# 
+        count = count+1# Count is equal to 0 + 1
+        print(f"${total_cost:.2f}")# Print total cost
+    print()# Print blank space
+    if del_pick == "Delivery":# if delivery type is equal to delivery then run following code
+        if len(order_list) >= 5:# if
+            print("Your order will be delivered for free due to ordering 5 or more products")# Print Free delivery message
+        elif len(order_list) <= 5:# if
+            print("There is an additional $9.00 delivery charge")# Print message 
+            total_cost = total_cost + 9# total cost for delivery is equal to sum of all products + 9 dollars for delivery
         print("Order Cost Details")# Print Heading for order cost details
-        print(f"${total_cost:.2f}")# Print
+        print(f"${total_cost:.2f}")# Print total cost of products
     if del_pick == "Click and Collect":# if pick up type is click and collect
         print("Thank you for your order, we'll let you know when its ready")# Print message thanking user for order
     elif del_pick == "Delivery":# if pick up type is delivery
@@ -226,7 +226,7 @@ def confirm_cancel():# define following code as "confirm_cancel"
     print(" To confirm please enter 1")# Tell user to confirm by entering 1
     print(" To cancel please enter 2")# Tell user to cancel by entering 2
     confirm = valid_integer(low, high, question)# 
-    if confirm == 1:# if integer 
+    if confirm == 1:# if integer equals 1
         print ("Ordered Confirmed")# Tell user their order has been confirmed
         print ("Your order has been sent to our manufactures")# tell user the order went through
         print("Your neat mousepad will be yours shortly")# Print message telling user their item will come shortly
@@ -234,7 +234,7 @@ def confirm_cancel():# define following code as "confirm_cancel"
     elif confirm == 2:# if integer is 2
         print("Your order has been cancelled")# Print message telling user their order has been cancelled
         print("You can restart your order or exit the chat")# Print message telling user to restart order or exit chat
-        new_exit()# call/reference new exit
+        new_exit()# call/reference code called "new exit"
 
 
 # Option for new order or to exit
@@ -249,7 +249,7 @@ def new_exit():#define following code as new_exit
         order_list.clear()# clear inputs and information relating to order_list
         order_cost.clear()# clear inputs and information relating to order_cost
         customer_details.clear()# clear inputs and information relating to customer_details
-        main()#
+        main()# Calls / References code "main" to run 
 
     elif confirm == 2:# if integer = 2
         print("Thank you for visiting Noels Neat Mousepads")# print thank you message
@@ -268,5 +268,5 @@ def main():# defines following code as main
     print_order(del_pick)# references code called "del_pick" and runs it
     confirm_cancel()# references code called "confirm_cancel" and runs it
     
-main() #references code called "main" and runs it
+main()# references code called "main" and runs it
 

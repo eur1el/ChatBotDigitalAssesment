@@ -18,9 +18,11 @@ order_cost = []
 number_mousepad = 12
 def menu():
     number_mousepad = 12
+
+count = 0
     
 for count in range (number_mousepad):
-    print(" {} {} ${:.2f}") .format(count+1,mousepad_designs[count],mousepad_prices[count])
+    print(" {} {} ${:.2f}".format(count+1,mousepad_designs[count],mousepad_prices[count]))
 
 menu()
 

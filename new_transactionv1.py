@@ -9,7 +9,7 @@ while True:
                 print ("New Order")
                 break
     
-        elif  confirm == 2:
+        elif confirm == 2:
             print("Exit")
             break
 
