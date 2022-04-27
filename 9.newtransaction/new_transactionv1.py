@@ -8,7 +8,7 @@ while True:
             if confirm == 1:
                 print ("New Order")
                 break
-    
+            else
         elif confirm == 2:
             print("Exit")
             break
@@ -18,4 +18,3 @@ while True:
     except ValueError:
         print("That is not a valid number")
         print("Please enter 1 or 2")
-

@@ -14,18 +14,19 @@ order_list = []
 order_cost = []
 
 #list to store order cost
-number_mousepad = 12
+number_mousepad = 9
 def menu():
-    number_mousepad = 12
+    number_mousepad = 9
     
 for count in range(number_mousepad) :
-    print ("{} ${:.2f}".format(count+1,mousepad_designs[count],mousepad_prices[count]) )
+    print(" {} {} ${:.2f}".format(count+1,mousepad_designs[count],mousepad_prices[count]))
 
 
 menu()
 
+
 def order_mousepad():
-    #ask for total number of pizzas for order
+    #ask for total number of mousepadsfor order
     num_mousepads = 0
     while True:
         try:
@@ -38,6 +39,7 @@ def order_mousepad():
                 print("That is not a valid number")
                 print("Please enter 1 or 5")      
     #Choose pizza from menu
+    
     for item in range(num_mousepads):
         while num_mousepads > 0:
             while True:
@@ -53,10 +55,11 @@ def order_mousepad():
                 mousepad_ordered = mousepad_ordered -1
                 order_list.append(mousepad_designs[mousepad_ordered])
                 order_cost.append(mousepad_designs[mousepad_ordered])
-                print(" {} {} ${:.2f}") .format(mousepad_designs[mousepad_ordered],mousepad_prices[mousepad_ordered])
+                print(" {} {} ${:.2f}".format(mousepad_designs[mousepad_ordered],mousepad_prices[mousepad_ordered]))
                 num_mousepads = num_mousepads-1
 
-            
-    print(order_list)
-    print(order_cost)
+order_mousepad()
+
+print(order_list)
+print(order_cost)
 

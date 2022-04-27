@@ -19,3 +19,5 @@ print(customers_details['name'])
 question = ("Please enter your phone number  ")
 customers_details['phone'] = not_blank(question  )
 print(customers_details['phone'])
+
+print (customers_details) 

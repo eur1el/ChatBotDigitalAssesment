@@ -15,9 +15,9 @@ order_list = []
 order_cost = []
 
 #list to store order cost
-number_mousepad = 12
+number_mousepad = 9
 def menu():
-    number_mousepad = 12
+    number_mousepad = 9
 
 count = 0
     
@@ -26,7 +26,7 @@ for count in range (number_mousepad):
 
 menu()
 
-#ask for total number of pizzas for order
+#ask for total number of mousepads for order
 num_mousepads = 0
 
 
@@ -44,11 +44,7 @@ while True:
 
 
 
-print(num_mousepads)
-
-num_pizzas = input("How many pizzas do you wnat to order")
-
-#Choose pizza from menu
+#Choose mousepad from menu
 print("Please choose your mousepads by entering the number from the menu")
 for item in range(num_mousepads):
     while num_mousepads > 0:

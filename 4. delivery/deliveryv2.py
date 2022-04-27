@@ -13,11 +13,11 @@ def not_blank(question):
 
 def delivery():
     question = ("Please enter your name")
-    customers_details['name'] = not_blank( question)
+    customers_details['name'] = not_blank(question)
     print(customers_details['name'])
 
-    question = ("Please enter your phone number  ")
-    customers_details['phone'] = not_blank(question  )
+    question = ("Please enter your phone number")
+    customers_details['phone'] = not_blank(question)
     print(customers_details['phone'])
 
     question = ("Please enter your house")
