@@ -4,14 +4,13 @@ print(" To exit the BOT enter 2")
 while True:
     try:
         confirm = int(input("Please enter a number"))
-        if confirm >= 1 and confirm <=2:
+        if confirm >= 1 and confirm <= 2:
             if confirm == 1:
                 print ("New Order")
                 break
-            else
-        elif confirm == 2:
-            print("Exit")
-            break
+            elif confirm == 2:
+                print("Exit")
+                break
 
         else:
             print("The number must be 1 or 2")

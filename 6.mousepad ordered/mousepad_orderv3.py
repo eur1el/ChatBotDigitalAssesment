@@ -1,10 +1,8 @@
-#list of pizza names
-from multiprocessing.sharedctypes import Value
-
+#list of mousepad names
 mousepad_designs = ['Wave Design- Small','Sakura Blossom Design - Small', 'Plain Blank Design Small','Wave Design- Medium','Sakura Blossom Design - ,Medium', 
 'Plain Blank Design Medium', 'Wave Design- Large','Sakura Blossom Design - Large', 'Plain Blank Design Large',]
 
-#list of pizza prices
+#list of mousepad prices
 mousepad_prices = [12.50, 12.50, 12.50, 17.50, 17.50, 17.50, 24, 24, 24]
 
 #list to store ordered mousepads
@@ -30,36 +28,33 @@ def order_mousepad():
     num_mousepads = 0
     while True:
         try:
-            num_mousepads = int(input("How many mousepads do you want order>"))
-            if num_mousepads >= 1 and num_mousepads <= 5:
+            num_mousepads = int(input("How many mousepads do you want order?"))
+            if num_mousepads >= 1 and num_mousepads <= 9:
                 break
             else:
-                print("Your order must be between 1 and 5")
+                print("Your order must be between 1 and 15")
         except ValueError:
-                print("That is not a valid number")
-                print("Please enter 1 or 5")      
-    #Choose pizza from menu
-    
+            print ("That is not a valid number")
+            print ("Please enter a number between 1 and 15")
+    # Choose costume from menu
     for item in range(num_mousepads):
         while num_mousepads > 0:
-            while True:
+            while True:  
                 try:
-                    mousepad_ordered = int(input("Please choose your mousepad by entering the number from the menu"))
-                    if mousepad_ordered >=1 and mousepad_ordered  <= 9:
+                    mousepad_ordered = int(input("Please choose the mousepad you would like to order by entering the number of the mousepad from the menu "))
+                    if mousepad_ordered>= 1 and mousepad_ordered <= 9:
                         break
                     else:
-                        print("Your order must be between 1 and 9")
+                        print("Your mousepad order must be between 1 and 9")
                 except ValueError:
                     print ("That is not a valid number")
-                    print("Please enter a number between 1 and 9")
-                mousepad_ordered = mousepad_ordered -1
-                order_list.append(mousepad_designs[mousepad_ordered])
-                order_cost.append(mousepad_designs[mousepad_ordered])
-                print(" {} {} ${:.2f}".format(mousepad_designs[mousepad_ordered],mousepad_prices[mousepad_ordered]))
-                num_mousepads = num_mousepads-1
-
+                    print ("Please enter a number between 1 and 9")
+            mousepad_ordered = mousepad_ordered -1
+            order_list.append(mousepad_designs[mousepad_ordered])
+            order_cost.append(mousepad_prices[mousepad_ordered])
+            print("{} ${:.2f}"  .format(mousepad_designs[mousepad_ordered],mousepad_prices[mousepad_ordered]))
+            num_mousepads = num_mousepads -1
 order_mousepad()
 
-print(order_list)
-print(order_cost)
+
 

@@ -5,6 +5,6 @@ order_list=['Wave Design- Small','Sakura blossom Design - Small','Plain Black De
 order_cost = [12.50, 12.50, 12.50]
 
 count = 0
-for order in order_list:
-    print("Ordered: {} Cost ${:.2f}".format(item,order))
+for item in order_list:
+    print("Ordered: {} Cost ${:.2f}".format(item,order_cost[count]))
     count = count+1

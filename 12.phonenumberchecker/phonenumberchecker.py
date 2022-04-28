@@ -13,3 +13,9 @@ def check_phone(question, ph_low, ph_high):
                 print("NewZealand mobile numbers contain 7 to 10 digits")
         except ValueError:
             print("Please enter a number ")
+ph_low = 7
+ph_high = 10
+question = ("Please enter your mobile phone number")
+
+phone = check_phone(question, ph_low, ph_high)
+print(phone)

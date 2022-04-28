@@ -1,6 +1,5 @@
 #list to store ordered mousepads
-from os import system
-
+import sys
 
 order_list = []
 
@@ -9,6 +8,9 @@ order_cost = []
 
 #Customer details dictionary
 customer_details = {}
+
+def main():
+    print("Start again")
 
 print(" Do you want to create another or exit?")
 print(" To start another order enter 1")
@@ -24,14 +26,13 @@ while True:
                 customer_details.clear()
                 main()
                 break
-    
-        elif  confirm == 2:
-            print("Exit")
-            order_list.clear()
-            order_cost.clear()
-            customer_details.clear()
-            system.exit()
-            break
+            elif  confirm == 2:
+                print("Exit")
+                order_list.clear()
+                order_cost.clear()
+                customer_details.clear()
+                sys.exit()
+                break
 
         else:
             print("The number must be 1 or 2")
@@ -39,6 +40,3 @@ while True:
         print("That is not a valid number")
         print("Please enter 1 or 2")
     
-    def main():
-        print("Start again")
-

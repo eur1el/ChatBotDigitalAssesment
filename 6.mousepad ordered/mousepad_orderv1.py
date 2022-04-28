@@ -1,8 +1,8 @@
-#list of pizza names
+#list of mousepad names
 mousepad_designs = ['Wave Design- Small','Sakura Blossom Design - Small', 'Plain Blank Design Small','Wave Design- Medium','Sakura Blossom Design - ,Medium', 
 'Plain Blank Design Medium', 'Wave Design- Large','Sakura Blossom Design - Large', 'Plain Blank Design Large',]
 
-#list of pizza prices
+#list of mousepad prices
 mousepad_prices = [12.50, 12.50, 12.50, 17.50, 17.50, 17.50, 24, 24, 24]
 
 #list to store ordered mousepads
@@ -29,7 +29,7 @@ num_mousepads = int(input("How many mousepads do you want order?"))
 print(num_mousepads)
 
 
-#Choose pizza from menu
+#Choose pizza from menu 
 print("Please choose your mousepads by entering the number from the menu")
 for item in range(num_mousepads):
     while num_mousepads > 0:
