@@ -65,14 +65,6 @@ def valid_integer(low, high, question):#
             print ("That is not a valid number")# 
             print (f"Please enter a number between {low} and {high}")# 
 
-def check_string(question):# 
-    while True:# 
-        response = input(question)# 
-        x = response.isalpha()# 
-        if x == False:# 
-            print("Input must only contain letters")#
-        else:# 
-            return response.title()#
             
 def check_phone(question, ph_low, ph_high):# 
     while True:# When 
@@ -130,23 +122,23 @@ def pickup_info():# Define following code as "pickup_info"
 
     # delivery information - phone and number
 def delivery_info():# Define following code as "delivery_info"
-    question = ("Please enter your name")# Ask user to enter their name
+    question = ("Please enter your name ")# Ask user to enter their name
     customer_details['name'] = check_string(question)# When user has their name entered use code "check_string" to see whether only letters are being inputed
     print(customer_details['name'])# Print users name
 
-    question = ("Please enter your phone number")# Ask user to enter their phone number
+    question = ("Please enter your phone number ")# Ask user to enter their phone number
     customer_details['phone'] = check_phone(question,ph_low,ph_high)# When user has entered their phone number use code "check phone to see whether only letters are being inputed
     print(customer_details['phone'])# When user has entered use code "check_string" to see whether only letters are being inputed
 
-    question = ("Please enter your house")# Ask user to enter their house
+    question = ("Please enter your house number")# Ask user to enter their house
     customer_details['house'] = not_blank(question)# When user has entered their house use code "check_string" to see whether only letters are being inputed
     print(customer_details['house'])# Print Customers house
 
-    question = ("Please enter your street number")# Ask user to enter their street
-    customer_details['street'] = check_string(question)# When user has entered their street then uses code "check_string" to see whether only letters are being inputed
+    question = ("Please enter your street name ")# Ask user to enter their street
+    customer_details['street'] = check_string(question)# When user has entered their street then uses code "check_string" to see whether only input is being left blank
     print(customer_details['street'])# # Print customers input for street
 
-    question = ("Please enter your suburb")# Ask user to enter their suburb
+    question = ("Please enter your suburb ")# Ask user to enter their suburb
     customer_details['suburb'] = check_string(question)# When user has entered use code "check_string" to see whether only letters are being inputed
     print(customer_details['suburb'])# Print customers input for suburb 
     print (customer_details)# print code called "customer_details"
@@ -166,10 +158,10 @@ def order_mousepads():#
     num_low = 1# 
     num_high = 15# 
     menu_low = 1# 
-    menu_high = 13# 
+    menu_high = 9# 
     question = (f"Enter a number between {num_low} and {num_high}")# 
     print("How many mousepads do you want to order?")# 
-    num_mousepads = valid_integer(menu_low,menu_high,question)# 
+    num_mousepads = valid_integer(num_low,num_high,question)# 
     #Choose mousepad from menu
     for item in range(num_mousepads):# 
         while num_mousepads > 0:# 
