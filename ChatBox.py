@@ -193,7 +193,7 @@ def print_order(del_pick):# define following order as "print_order(del_pick)"
     print("Order Details")# Print order detail message
     count = 0# Set count as 0
     for item in order_list:# 
-        print("Ordered: {} Cost ${:.2f}"    .format(item, order_cost[count]))# 
+        print("Ordered: {} Cost ${:.2f}".format(item, order_cost[count]))# 
         count = count+1# Count is equal to 0 + 1
         print(f"${total_cost:.2f}")# Print total cost
     print()# Print blank space
