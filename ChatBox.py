@@ -171,9 +171,8 @@ def order_mousepads():#
             mousepads_ordered = mousepads_ordered -1# 
             order_list.append(mousepad_designs[mousepads_ordered])# 
             order_cost.append(mousepad_prices[mousepads_ordered])# 
-            print("{} ${:.2f}".format(mousepad_designs[mousepads_ordered],mousepad_prices[mousepads_ordered]))# 
             num_mousepads = num_mousepads -1# 
-
+            print("{} ${:.2f}".format(mousepad_designs[mousepads_ordered],mousepad_prices[mousepads_ordered]))# 
 
 # Print order out - including
 def print_order(del_pick):# define following order as "print_order(del_pick)"
