@@ -183,6 +183,7 @@ def print_order(del_pick):# define following order as "print_order(del_pick)"
     print ("Customer Details")# Print Customer details -
     if del_pick == "Click and Collect":# If delivery type equals click and collect
          print("Your Order is for Click and Collect")# Print message to user telling their order is ready
+         print("You will recieve a message when order is ready for pickup")
          print(f"Customer Name: {customer_details['name']}"# Print Customer Name
               f"\nCustomer Phone: {customer_details['phone']}")# Print Customer Phone
     elif del_pick == "delivery":# If ordertype = delivery
