@@ -28,7 +28,7 @@ def order_mousepad():
     num_mousepads = 0
     while True:
         try:
-            num_mousepads = int(input("How many mousepads do you want order?"))
+            num_mousepads = int(input("How many mousepads do you want order? "))
             if num_mousepads >= 1 and num_mousepads <= 9:
                 break
             else:

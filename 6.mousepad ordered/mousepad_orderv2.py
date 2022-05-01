@@ -28,21 +28,17 @@ menu()
 
 #ask for total number of mousepads for order
 num_mousepads = 0
-
-
 while True:
     try:
-        num_mousepads = int(input("How many mousepads do you want order>"))
-        if num_mousepads >= 1 and num_mousepads <=5:
+        num_mousepads = int(input("How many mousepads do you want order? "))
+        if num_mousepads >= 1 and num_mousepads <=15:
             break
         else:
-            print("Your order must be between 1 and 5")
+            print("Your order must be between 1 and 15")
     except ValueError:
             print("That is not a valid number")
-            print("Please enter 1 or 5")
+            print("Please enter 1 or 15")
            
-
-
 
 #Choose mousepad from menu
 print("Please choose your mousepads by entering the number from the menu")
@@ -54,7 +50,6 @@ for item in range(num_mousepads):
         num_mousepads = num_mousepads-1
 
 print(order_list)
-print(order_cost)
 
 
 
