@@ -85,7 +85,7 @@ def check_phone(question, ph_low, ph_high):#
 def welcome():# Define following code as "welcome"
     num = randint(0, 8)# choose a random integer between 0 and 8
     name = (names[num])# random integer chosen correlates to name from randomised name list
-    print("Welcome to Noels neat mousepad ")# Print welcome message
+    print("Hello, Welcome to Noels Neat Mousepads")# Print welcome message
     print("My name is", name,"")# Print message using code "name"
     print("I will be here to help you order your neat mousepad")# Print Help message
 
@@ -159,20 +159,21 @@ def order_mousepads():#
     num_high = 15# 
     menu_low = 1# 
     menu_high = 9# 
-    question = (f"Enter a number between {num_low} and {num_high}")# 
+    question = (f"Enter a number between {num_low} and {num_high} ")# 
     print("How many mousepads do you want to order?")# 
     num_mousepads = valid_integer(num_low,num_high,question)# 
     #Choose mousepad from menu
     for item in range(num_mousepads):# 
         while num_mousepads > 0:# 
             print("Please choose the mousepad you want by providing the number of the mousepad from the menu")# 
-            question = (f"Enter a number between {menu_low} and {menu_high}")# 
+            question = (f"Enter a number between {menu_low} and {menu_high} ")# 
             mousepads_ordered = valid_integer(menu_low, menu_high, question)# 
             mousepads_ordered = mousepads_ordered -1# 
             order_list.append(mousepad_designs[mousepads_ordered])# 
             order_cost.append(mousepad_prices[mousepads_ordered])# 
-            num_mousepads = num_mousepads -1# 
             print("{} ${:.2f}".format(mousepad_designs[mousepads_ordered],mousepad_prices[mousepads_ordered]))# 
+            num_mousepads = num_mousepads -1# 
+            
 
 # Print order out - including
 def print_order(del_pick):# define following order as "print_order(del_pick)"
@@ -189,13 +190,14 @@ def print_order(del_pick):# define following order as "print_order(del_pick)"
               f"\nCustomer Phone: {customer_details['phone']}"# Print customer phone
               f"\nCustomer Address: {customer_details['house']} ")# Print Customer Address
     print()# Print Blank space
+
+
     #Function
     print("Order Details")# Print order detail message
     count = 0# Set count as 0
     for item in order_list:# 
         print("Ordered: {} Cost ${:.2f}".format(item, order_cost[count]))# 
         count = count+1# Count is equal to 0 + 1
-        print(f"${total_cost:.2f}")# Print total cost
     print()# Print blank space
     if del_pick == "Delivery":# if delivery type is equal to delivery then run following code
         if len(order_list) >= 5:# if
@@ -204,15 +206,16 @@ def print_order(del_pick):# define following order as "print_order(del_pick)"
             print("There is an additional $9.00 delivery charge")# Print message 
             total_cost = total_cost + 9# total cost for delivery is equal to sum of all products + 9 dollars for delivery
         print("Order Cost Details")# Print Heading for order cost details
-        print(f"${total_cost:.2f}")# Print total cost of products
+        print(f"The total price of the order comes out to: ${total_cost:.2f}")# Print total cost of products
     if del_pick == "Click and Collect":# if pick up type is click and collect
         print("Thank you for your order, we'll let you know when its ready")# Print message thanking user for order
     elif del_pick == "Delivery":# if pick up type is delivery
         print("Thank you for your order, it will be processed soon")# Print message thanking user for order
 
+
 # Ability to cancel or proceed with order
 def confirm_cancel():# define following code as "confirm_cancel"
-    question = (f"Enter a number between {low} and {high}")# FINISH
+    question = (f"Enter a number between {low} and {high} ")# FINISH
     print(" Please confirm your order")# Ask user to confirm their order
     print(" To confirm please enter 1")# Tell user to confirm by entering 1
     print(" To cancel please enter 2")# Tell user to cancel by entering 2
