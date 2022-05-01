@@ -19,10 +19,11 @@ names = ["Dennis", "Marcus", "Railey", "Karlos", "Jacob", "Euriel", "Cindy", "Ei
 
 
 # list of mousepad designs
-mousepad_designs = ['Wave Design- Small', 'Sakura Blossom Design - Small', 'Plain Blank Design Small', 'Wave Design- Medium', 'Sakura Blossom Design - ,Medium', 'Plain Blank Design Medium', 'Wave Design- Large', 'Sakura Blossom Design - Large', 'Plain Blank Design Large', ]
+mousepad_designs = ['Wave Design- Small','Sakura Blossom Design - Small', 'Plain Blank Design - Small','Whiteout Design - Small','Wave Design- Medium','Sakura Blossom Design - Medium', 
+'Plain Blank Design Medium','Whiteout Design - Medium' 'Wave Design- Large','Sakura Blossom Design - Large', 'Plain Blank Design Large','Whiteout design - Large']
 
 # mousepad prices
-mousepad_prices = [12.50, 12.50, 12.50, 17.50, 17.50, 17.50, 24, 24, 24]
+mousepad_prices = [ 12.50, 12.50, 12.50, 12.50, 17.50, 17.50, 17.50,17.50, 24, 24, 24,24 ]
 
 # list to store ordered mousepads
 order_list = []
@@ -158,7 +159,7 @@ def order_mousepads():#
     num_low = 1# 
     num_high = 15# 
     menu_low = 1# 
-    menu_high = 9# 
+    menu_high = 12# 
     question = (f"Enter a number between {num_low} and {num_high} ")# 
     print("How many mousepads do you want to order?")# 
     num_mousepads = valid_integer(num_low,num_high,question)# 
