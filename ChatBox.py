@@ -119,7 +119,6 @@ def pickup_info():# Define following code as "pickup_info"
     question = ("Please enter your phone number ")# Ask user to enter their phone number
     customer_details['phone'] = check_phone(question,ph_low,ph_high)# 
     print(customer_details['phone'])# Print customers input for phone number
-    print (customer_details)# print code called "customer_details"
 
     # delivery information - phone and number
 def delivery_info():# Define following code as "delivery_info"
@@ -142,7 +141,6 @@ def delivery_info():# Define following code as "delivery_info"
     question = ("Please enter your suburb ")# Ask user to enter their suburb
     customer_details['suburb'] = check_string(question)# When user has entered use code "check_string" to see whether only letters are being inputed
     print(customer_details['suburb'])# Print customers input for suburb 
-    print (customer_details)# print code called "customer_details"
 
 
 # mousepad menu
@@ -166,7 +164,7 @@ def order_mousepads():# defines following code as order_mousepad
     #Choose mousepad from menu
     for item in range(num_mousepads):
         while num_mousepads > 0:# when num_mousepad is greater than 0
-            print("Please choose the mousepad you want by providing the number of the mousepad from the menu")# Asks user to choose their mousepad by entering a number which correlates to the menu
+            print("Please choose your mousepad using the menu number")# Asks user to choose their mousepad by entering a number which correlates to the menu
             question = (f"Enter a number between {menu_low} and {menu_high} ")# asks user to enter a number between menu_low (1) and menu_high(12)
             mousepads_ordered = valid_integer(menu_low, menu_high, question)# makes sure integer inputted by user is between "menu_low"(1) and "menu_high"(15)
             mousepads_ordered = mousepads_ordered -1# makes sure correct mousepad ordered are printer
@@ -209,7 +207,11 @@ def print_order(del_pick):# define following order as "print_order(del_pick)"
         print("Order Cost Details")# Print Heading for order cost details
         print(f"The total price of the order comes out to: ${total_cost:.2f}")# Print total cost of products with dollar signs
     if del_pick == "Click and Collect":# if pick up type is click and collect
+        print("Order Cost Details")# Print Heading for order cost details
+        print(f"The total price of the order comes out to: ${total_cost:.2f}")# Print total cost of products with dollar signs
+        print()
         print("Thank you for your order, you'll receive a text when order is ready for pickup")# Print message thanking user for order
+        print()
     elif del_pick == "Delivery":# if pick up type is delivery
         print("Thank you for your order, it will be processed soon")# Print message thanking user for order
         print()# print blank space
@@ -227,6 +229,7 @@ def confirm_cancel():# define following code as "confirm_cancel"
         print ("Ordered Confirmed")# Tell user their order has been confirmed
         print ("Your order has been sent to our manufactures")# tell user the order went through
         print("Your neat mousepad will be yours shortly")# Print message telling user their item will come shortly
+        print()
         new_exit()# call/ reference code that is defined as "new_exit"
     elif confirm == 2:# if integer is 2
         print()# print blank space
@@ -251,6 +254,7 @@ def new_exit():#define following code as new_exit
         main()# Calls / References code "main" to run 
 
     elif confirm == 2:# if integer = 2
+        print()
         print("Thank you for visiting Noels Neat Mousepads")# print thank you message
         order_list.clear()# clear inputs and information relating to order_list
         order_cost.clear()# clear inputs and information relating to order_cost
