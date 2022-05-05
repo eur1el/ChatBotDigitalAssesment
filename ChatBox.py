@@ -187,7 +187,10 @@ def print_order(del_pick):# define following order as "print_order(del_pick)"
     elif del_pick == "Delivery":# If ordertype = delivery
         print("Your order is selected for delivery")# Print message telling user their message is delivery type
         print(f"Customer Name: {customer_details['name']}"# Print Customer Name
-              f"\nCustomer Phone: {customer_details['phone']}")# Print Customer Phone
+              f"\nCustomer Phone: {customer_details['phone']}"# Print customers phone
+              f"\nCustomer House: {customer_details['house']}"# Print customers house
+              f"\nCustomer Street: {customer_details['street']}"# Print Customer Street
+              f"\nCustomer Suburb: {customer_details['suburb']}")# Print Customer suburb
     print()# Print Blank space
 
 
