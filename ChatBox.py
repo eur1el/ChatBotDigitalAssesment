@@ -184,7 +184,7 @@ def print_order(del_pick):# define following order as "print_order(del_pick)"
          print("You will recieve a message when order is ready for pickup")# Print text pickup message
          print(f"Customer Name: {customer_details['name']}"# Print Customer Name
               f"\nCustomer Phone: {customer_details['phone']}")# Print Customer Phone
-    elif del_pick == "delivery":# If ordertype = delivery
+    elif del_pick == "Delivery":# If ordertype = delivery
         print("Your order is selected for delivery")# Print message telling user their message is delivery type
         print(f"Customer Name: {customer_details['name']}"# Print Customer Name
               f"\nCustomer Phone: {customer_details['phone']}")# Print Customer Phone
